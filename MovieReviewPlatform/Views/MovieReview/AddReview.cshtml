@@ -1,0 +1,47 @@
+﻿@model MovieReviewPlatform.Models.Movie
+
+@{
+    ViewData["Title"] = "Add Movie Review";
+}
+
+<h2>Add Movie Review</h2>
+
+<form asp-action="AddReview" method="post">
+    <div>
+        <label asp-for="Title"></label>
+        <input asp-for="Title" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    
+    <div>
+        <label asp-for="Director"></label>
+        <input asp-for="Director" />
+        <span asp-validation-for="Director" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="ReleaseYear"></label>
+        <input asp-for="ReleaseYear" />
+        <span asp-validation-for="ReleaseYear" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Rating"></label>
+        <input asp-for="Rating" />
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Review"></label>
+        <textarea asp-for="Review"></textarea>
+        <span asp-validation-for="Review" class="text-danger"></span>
+    </div>
+
+    <button type="submit">Submit Review</button>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+}
